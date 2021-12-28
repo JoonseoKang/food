@@ -17,4 +17,5 @@ To add：
 3. ```--dir=str```, e.g.```--dir=korean``` 이미지 저장할 디렉토리 지정
 
 ## 2. fine tuning
-vgg 16으로 한식 vs 이탈이아 음식 분류 모델 학습. transfer learning의 경우 정확도가 40%
+vgg 16으로 한식 vs 이탈이아 음식 분류 모델 학습. transfer learning의 경우 정확도가 40% 였지만 fine tuning후에 80% 까지 향상되었다.  
+vgg16말고 다른 모델로 정확도 향상 시켜보고 음식 분류에 특화된 모델이 있는지 찾아볼 계획.  
