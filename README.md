@@ -15,3 +15,6 @@ To add：
 2. ```--number=int```, e.g.```--number='500'``` 저장하고 싶은 이미지 개수 입력
 
 3. ```--dir=str```, e.g.```--dir=korean``` 이미지 저장할 디렉토리 지정
+
+## 2. fine tuning
+vgg 16으로 한식 vs 이탈이아 음식 분류 모델 학습. transfer learning의 경우 정확도
