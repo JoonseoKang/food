@@ -18,14 +18,14 @@ from torchvision import models, transforms
 
 class ImageTransform():
     """
-    화상 전처리 클래스. 훈련시, 검증시의 동작이 다르다.
-    화상 크기를 리사이즈하고, 색상을 표준화한다.
+    이미지 전처리 클래스. 훈련시, 검증시의 동작이 다르다.
+    이미지 크기를 리사이즈하고, 색상을 표준화한다.
     훈련시에는 RandomResizedCrop과 RandomHorizontalFlip으로 데이터를 확장한다.
 
     Attributes
     ----------
     resize : int
-        리사이즈 대상 화상의 크기.
+        리사이즈 대상 이미지 크기.
     mean : (R, G, B)
         각 색상 채널의 평균 값.
     std : (R, G, B)
@@ -61,11 +61,11 @@ class ImageTransform():
 # image_file_path = './korean/0.jpg'
 # img = Image.open(image_file_path)   # [높이][폭][색RGB]
 
-# 2. 원본 화상 표시
+# 2. 원본 이미지 표시
 # plt.imshow(img)
 # plt.show()
 
-# 3. 이미지 전처리, 처리된 화상을 표시
+# 3. 이미지 전처리, 처리된 이미지 표시
 size = 224
 mean = (0.485, 0.456, 0.406)
 std = (0.229, 0.224, 0.225)
@@ -134,19 +134,19 @@ class myDataset(data.Dataset):
         self.phase = phase  # train or val 지정
 
     def __len__(self):
-        '''화상 개수를 반환'''
+        '''이미지 개수를 반환'''
         return len(self.file_list)
 
     def __getitem__(self, index):
         '''
-        전처리한 화상의 Tensor 형식의 데이터와 라벨을 취득
+        전처리한 이미지의 Tensor 형식의 데이터와 라벨을 취득
         '''
 
-        # index번째의 화상을 로드
+        # index번째의 이미지 로드
         img_path = self.file_list[index]
         img = Image.open(img_path)  # [높이][너비][색RGB]
 
-        # 화상의 전처리를 실시
+        # 이미지 전처리를 실시
         img_transformed = self.transform(
             img, self.phase)  # torch.Size([3, 224, 224])
 
